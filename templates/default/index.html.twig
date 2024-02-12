@@ -1,0 +1,100 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Patience petit Panda des iles !
+{% endblock %}
+
+{% block body %}
+
+{# j'inclus un coposant menu #}
+{# {% include 'menu/_menu.html.twig' %}
+
+      {% set temperature = 10 %}
+      {% set resultat = addition(10,10)%}
+	<ul>
+
+		<h1>Liste des Articles</h1>
+        <pre>
+        Nous somme le {{"now"|date("d/m/Y")}} c'est un jours merveilleux
+        la temperature est de {{temperature}} °C
+        Il y a {{articles|length}} articles en back
+        il est {{'now'|date('H:i:s')}}
+        Si nous ajoutons 10° de plus nous aurons {{resultat}} °C
+        
+
+        
+            
+        </pre> #}
+
+
+        
+
+{# je met un filtre qui renvoi la longeur de la variable articles #}
+        {# <p>il y a {{articles|length}} articles</p> #}
+
+        
+        {# <cite>nous somme le {{"now"|date("d/m/Y")}} c'est un jours merveilleux</cite>  #}
+        
+        {# je declare la variable temperature
+
+        {% set temperature = 10 %}
+
+        je verifie si la temperature et superieur a 5
+        {% if temperature > 5 %}
+            <p>Il fait {{temperature}} degré, il fait chaud</p>
+        {% else %}
+            <p>Il fait {{temperature}} tres froid</p>
+        {% endif %} #}
+              
+       
+
+		{# {% for article in articles %}
+
+			<li>
+				<a href="{{path('vue_article', {'id': article.id})}}">{{ article.titre }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+
+	<div class="example-wrapper"></div>
+{% endblock %}
+{% block javascripts %}
+    
+<script>alert("Nous sommes dans l'index") </script>
+{% endblock %} #} 
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes des articles!
+{% endblock %}
+
+{% block body %}
+
+    {# J'inclue un composant menu #}
+    {% include 'menu/_menu.html.twig' %}
+
+    <h1>
+        Liste des articles
+    </h1>
+   <p>{{ articles | Taille }}</p> 
+
+    {# je declare une variable de temperature 
+    {% set temperature = 10 %}
+    {% set result = addition(10,10) %}
+
+    <pre>    Nous sommes le {{'now'|date('d/m/Y')}} et
+    il fait {{temperature}}°C.
+    Si nous y ajoutons 10°C de plus nous aurons {{ result }}°C.
+    </pre>#}
+
+    {#  ! utilisation courante #}
+    <ul>
+        {% for article in articles %}
+            <li>
+                <a href="{{path('vue_article', {'id':article.id }) }}">{{ article.titre }}</a>{{article.dateCreation|date('d/m/Y')}}
+            </li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

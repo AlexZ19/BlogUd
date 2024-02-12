@@ -1,0 +1,75 @@
+{# {% extends "base.html.twig" %}
+
+{% block title %}
+     Article : n° {{ article.titre }}
+{% endblock %}
+
+{% block body %}
+{# j'inclus mon componsant menu
+      {% include "menu/_menu.html.twig" %}
+   <h1>
+    Article : n° {{ article.titre }}
+   </h1>
+   <p>
+      {{ article.contenu }}
+   </p>
+   <small>
+      {{ article.dateCreation|date('d/m/Y') }}
+   </small>
+{% endblock %}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ article.titre }}
+{% endblock %}
+
+{% block body %} #}
+
+    {# j'inclue mon composant _menu de mon dossier menu 
+    {% include 'menu/_menu.html.twig' %}
+
+    <h1>{{ article.titre }}
+    </h1>
+    <p>
+        {{ article.contenu }}
+    </p>
+    <small>{{ article.dateCreation | date('d/m/Y')}}</small>
+
+{% endblock %}#}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ article.titre }}
+{% endblock %}
+
+{% block body %}
+
+    {# j'inclue mon composant _menu de mon dossier menu #}
+    {% include 'menu/_menu.html.twig' %}
+
+    <h1>{{ article.titre }}
+    </h1>
+    <p>
+        {{ article.contenu }}
+    </p>
+    <small>{{ article.dateCreation | date('d/m/Y')}}</small>
+    <h2>Commentaire</h2>
+    <div class="container">
+    <div class="row">
+     {% for comment in article.comments %}
+     <div class="col-md-12">
+     <p>{{comment.dateComment|date("d/m/y")}}</p>
+     <p>{{comment.contenu}}</p>
+     <p>{{comment.author}}</p>
+     
+     </div>
+     <li>{{ comment.contenu }}</li>
+     {% endfor %}
+    </div>
+    </div>
+    
+       
+   
+
+{% endblock %}
